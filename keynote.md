@@ -18,3 +18,7 @@ create-react-app morney --template typescript（项目名可以自定）   全�
         但是只安装这个不会提示全名称，再执行
             yarn add --dev @types/styled-components
    
+6. 安装路由   yarn add react-router-dom
+    再安装 它的依赖  yarn add --dev @types/react-router-dom（TS 的声明变量也加载了）
+   
+7. 手机下部导航栏能不用 fixed 定位就不用，（ 原因是： 可能会被键盘顶上去）

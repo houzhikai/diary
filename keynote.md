@@ -25,5 +25,6 @@ create-react-app morney --template typescript（项目名可以自定）   全�
 8. 选择字体时 输入关键字 `中文字体 css github`  屏幕选择黑体  打印选择宋体
 9. 在 styled-component 里用$font-family 会出错，暂且现将变量放进 body 里
 10. 改变图片的样式，一般用 SVG Symbols 方式
-11.  yarn eject   只能将当期代码提交，才能使用（ 不可返回操作 ）
+11.  yarn eject   只能将当期代码提交，才能使用（ 不可返回操作 ） 
+        作用： 弹出 webpack 相关配置 (核心)， 会暴露出webpack.config.js
 

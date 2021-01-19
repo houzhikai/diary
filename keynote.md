@@ -22,3 +22,8 @@ create-react-app morney --template typescript（项目名可以自定）   全�
     再安装 它的依赖  yarn add --dev @types/react-router-dom（TS 的声明变量也加载了）
    
 7. 手机下部导航栏能不用 fixed 定位就不用，（ 原因是： 可能会被键盘顶上去）
+8. 选择字体时 输入关键字 `中文字体 css github`  屏幕选择黑体  打印选择宋体
+9. 在 styled-component 里用$font-family 会出错，暂且现将变量放进 body 里
+10. 改变图片的样式，一般用 SVG Symbols 方式
+11.  yarn eject   只能将当期代码提交，才能使用（ 不可返回操作 ）
+

@@ -1,4 +1,5 @@
 import React from 'react';
+import Nav from "./component/Nav";
 import {
     HashRouter as Router,
     Switch,
@@ -17,20 +18,7 @@ const Main = styled.main`
   flex-grow: 1;  //尽量地高
   overflow: auto; //页面超出在上面的区域，不会出现在下面的导航栏里
 `
-const Nav = styled.nav`
-  border: 1px solid blue;
-  > ul {
-    display: flex;
-     > li {
-       width: 33.3%;
-       text-align: center;
-       padding: 16px;
-       font-size: 20px;
-       font-weight: 800;
-       
-     }
-  }
-`
+
 
  function App() {
     return (
@@ -51,20 +39,7 @@ const Nav = styled.nav`
                     </Switch>
                 </Main>
 
-                <Nav>
-                    <ul>
-                        <li>
-                            <Link to="/tags">标签页</Link>
-                        </li>
-                        <li>
-                            <Link to="/money">记账</Link>
-                        </li>
-                        <li>
-                            <Link to="/statistics">统计</Link>
-                        </li>
-                    </ul>
-                </Nav>
-
+               <Nav />
 
             </Warpper>
         </Router>

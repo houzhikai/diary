@@ -7,54 +7,51 @@ import {
     Redirect
 } from "react-router-dom";
 import styled from "styled-components";
+import Layout from "./component/layout";
 
-const Warpper = styled.div`
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column; //上下模式，flex默认的是左右模式
-`
-const Main = styled.main`
-  flex-grow: 1;  //尽量地高
-  overflow: auto; //页面超出在上面的区域，不会出现在下面的导航栏里
-`
+
 
 
  function App() {
     return (
         <Router>
-            <Warpper>
+            <Switch>
+                <Route path="/tags" component={Tags} />
 
-                <Main>
-                    <Switch>
-                        <Route path="/tags" component={Tags} />
+                <Route path="/money" component={Money} />
 
-                        <Route path="/money" component={Money} />
+                <Route path="/statistics" component={Statistics} />
 
-                        <Route path="/statistics" component={Statistics} />
+                <Redirect exact from="/" to="/money" />
 
-                        <Redirect exact from="/" to="/money" />
-
-                        <Route path="*" component={NoMatch} />
-                    </Switch>
-                </Main>
-
-               <Nav />
-
-            </Warpper>
+                <Route path="*" component={NoMatch} />
+            </Switch>
         </Router>
     );
 }
 
 function Tags() {
-    return <h2>标签页面</h2>;
+  return (
+    <Layout>
+        <h2>标签页面</h2>
+    </Layout>
+  )
 }
 
 function Money() {
-    return <h2>记账页面</h2>;
+    return (
+        <Layout>
+            <h2>记账页面</h2>
+        </Layout>
+    )
 }
 
 function Statistics() {
-    return <h2>统计页面</h2>;
+    return (
+        <Layout>
+            <h2>统计页面</h2>
+        </Layout>
+    )
 }
 
 function NoMatch() {

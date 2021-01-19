@@ -1,4 +1,3 @@
-
 yarn global add create-react-app@3.4.1 （亦可用 npm 全局安装）
 create-react-app morney --template typescript（项目名可以自定）   全局使用TS
 
@@ -16,13 +15,13 @@ create-react-app morney --template typescript（项目名可以自定）   全�
 4. yarn add node-sass@npm:dart-sass 在本地使用node-sass，但是用dart-sass进行偷梁换柱
 5. 安装 styled-components
         但是只安装这个不会提示全名称，再执行
-            yarn add --dev @types/styled-components
+            `yarn add --dev @types/styled-components`
    
-6. 安装路由   yarn add react-router-dom
+6. 安装路由   `yarn add react-router-dom`
     再安装 它的依赖  yarn add --dev @types/react-router-dom（TS 的声明变量也加载了）
    
 7. 手机下部导航栏能不用 fixed 定位就不用，（ 原因是： 可能会被键盘顶上去）
-8. 选择字体时 输入关键字 `中文字体 css github`  屏幕选择黑体  打印选择宋体
+8. 选择字体时 输入关键字 `中文字体 css github`  *屏幕选择黑体*  *打印选择宋体*
 9. 在 styled-component 里用$font-family 会出错，暂且现将变量放进 body 里
 10. 改变图片的样式，一般用 SVG `Symbols` 方式
     参考文章： https://github.com/JetBrains/svg-sprite-loader

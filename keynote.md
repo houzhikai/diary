@@ -39,12 +39,14 @@ create-react-app morney --template typescript（项目名可以自定）   全�
      但是 TreeShaking 不适用于 require函数中
      
 14.  写完` yarn add --dev @types/webpack-env@1.15.1` 这个命令行，/src/component/icon.tsx 第10行将不会报错
-15. 点击导航栏改变颜色 去*react router*搜索 `active class` 
+15. 点击导航栏改变颜色 去*react router*搜索 `active class`
+
 16.处理 svg图标默认颜色的方法
     在svgo-loader 里改变 options  <br/>
     详情见语雀 `旺财项目（react版）` 这样不用去一个个删除svg的默认样式<br/>
     参考文章 https://github.com/svg/svgo/blob/master/plugins/removeAttrs.js
-    
 17. surround with Emmet 再输入命令，快速多行注释
+18. white-space: nowrap; //防止 前面的 备注 字样变成竖着的字样
+19.
     
 

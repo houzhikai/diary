@@ -38,3 +38,6 @@ create-react-app morney --template typescript（项目名可以自定）   全�
 13.  使用import引用 一定要加 console.log()  不然 图标也会不见<br/>
      涉及到  TreeShaking ，如果没有用到，将会用 TreeShaking， 将没有用的代码从树上摇下     来， 自动删除 没有用的代码<br/>
      但是 TreeShaking 不适用于 require函数中
+     
+14.  写完` yarn add --dev @types/webpack-env@1.15.1` 这个命令行，/src/component/icon.tsx 第10行将不会报错
+

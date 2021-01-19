@@ -1,3 +1,5 @@
+//上面的布局
+
 import Nav from "./Nav";
 import React from "react";
 import styled from "styled-components";
@@ -16,7 +18,7 @@ const Main = styled.main`
 const Layout = (props: any) => {
     return (
         <Warpper>
-            <Main>
+            <Main className={props.className}>
                 {props.children}
             </Main>
             <Nav />

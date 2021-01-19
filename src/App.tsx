@@ -20,7 +20,7 @@ import NoMatch from "./views/NoMatch";
 
                 <Route path="/statistics" component={Statistics} />
 
-                <Redirect exact from="/" to="/money" />
+                <Redirect exact from="/" to="/tags" />
 
                 <Route path="*" component={NoMatch} />
             </Switch>

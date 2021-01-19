@@ -45,4 +45,6 @@ create-react-app morney --template typescript（项目名可以自定）   全�
     详情见语雀 `旺财项目（react版）` 这样不用去一个个删除svg的默认样式<br/>
     参考文章 https://github.com/svg/svgo/blob/master/plugins/removeAttrs.js
     
+17. surround with Emmet 再输入命令，快速多行注释
+    
 

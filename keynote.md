@@ -24,7 +24,17 @@ create-react-app morney --template typescript（项目名可以自定）   全�
 7. 手机下部导航栏能不用 fixed 定位就不用，（ 原因是： 可能会被键盘顶上去）
 8. 选择字体时 输入关键字 `中文字体 css github`  屏幕选择黑体  打印选择宋体
 9. 在 styled-component 里用$font-family 会出错，暂且现将变量放进 body 里
-10. 改变图片的样式，一般用 SVG Symbols 方式
-11.  yarn eject   只能将当期代码提交，才能使用（ 不可返回操作 ） 
-        作用： 弹出 webpack 相关配置 (核心)， 会暴露出webpack.config.js
-
+10. 改变图片的样式，一般用 SVG `Symbols` 方式
+    参考文章： https://github.com/JetBrains/svg-sprite-loader
+11.  yarn eject   只能将当期代码提交，才能使用（ 不可返回操作 ） <br />
+        作用： 弹出 webpack 相关配置 (核心)， 会暴露出webpack.config.js<br />
+        输入命令：yarn add --dev svg-sprite-loader
+        - 注意: webpack 文件一般都会 --dev(这是个约定)
+    
+12. 在 webpack.config module => rules 加上 `/ webpack >= 2 multiple loaders` 下面那段代码
+      options 改为空
+    安装 yarn add --dev svgo-loader
+    
+13.  使用import引用 一定要加 console.log()  不然 图标也会不见<br/>
+     涉及到  TreeShaking ，如果没有用到，将会用 TreeShaking， 将没有用的代码从树上摇下     来， 自动删除 没有用的代码<br/>
+     但是 TreeShaking 不适用于 require函数中

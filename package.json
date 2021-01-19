@@ -101,7 +101,9 @@
   },
   "devDependencies": {
     "@types/react-router-dom": "^5.1.7",
-    "@types/styled-components": "^5.1.7"
+    "@types/styled-components": "^5.1.7",
+    "svg-sprite-loader": "^5.2.1",
+    "svgo-loader": "^2.2.1"
   },
   "jest": {
     "roots": [

@@ -19,8 +19,14 @@ body {
   font-family: $font-hei;
   font-size: 16px;  //默认字体 16px
   line-height: 1.2;  // 默认行高1.2倍
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  //-webkit-font-smoothing: antialiased;
+  //-moz-osx-font-smoothing: grayscale;
+}
+
+.icon {
+  width: 1em;  //一个字
+  height: 1em;
+  display: inline-block;
 }
 
 code {

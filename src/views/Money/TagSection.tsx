@@ -39,10 +39,13 @@ const Wrapper = styled.section`
 // TS => 在声明变量后面加冒号和函数类型
 // 类型有 FunctionComponent（简写：FC） ， string ， number ， boolean
 
-const TagSection: React.FC = () => {
+type Props = {
+    value: string[];
+    onChange: (selected: string[]) => void
+}
+const TagSection: React.FC<Props> = (props) => {
     const [tags, setTags] = useState<string[]>(['衣','食','住','行'])
-    const [selectedTages, setSelectedTages] = useState<string[]>([])
-
+    const selectedTags = props.value
     const onAddTag = () => {
         const tagName = window.prompt( '新标签的名字是')
         if(tagName !== null) {
@@ -50,13 +53,13 @@ const TagSection: React.FC = () => {
         }
     }
     const onToggleTag = (tag: string) => {
-        const index = selectedTages.indexOf(tag)  //查看tag 在不在 selectedTages 里面
+        const index = selectedTags.indexOf(tag)  //查看tag 在不在 selectedTags 里面
         if(index >= 0) {
             //如果 tag 已被选中，就复制所有没有被选中的 tag ，作为新的 selectedTag
-            setSelectedTages( selectedTages.filter(t => t !== tag) )  //记住这种语法
+            props.onChange(selectedTags.filter(t => t !== tag))  //记住这种语法
         }
         else {
-            setSelectedTages([...selectedTages, tag]) //没有被选中会返回新的数组
+            props.onChange([...selectedTags, tag]) //没有被选中会返回新的数组
         }
     }
 
@@ -65,7 +68,7 @@ const TagSection: React.FC = () => {
             <ol>
                 {/* 每次 map 遍历完都要加上 key ，因为tag不会重复，所以可以作为 key，不能用 index*/}
                 { tags.map(tag =>                                //给 li 添加className，如果被选中，返回 selected ，没有的话返回空字符串
-                    <li key={tag} onClick={()=>onToggleTag(tag)} className={selectedTages.indexOf(tag)>=0 ? 'selected' : ''}>
+                    <li key={tag} onClick={()=>onToggleTag(tag)} className={selectedTags.indexOf(tag)>=0 ? 'selected' : ''}>
                         {tag} </li>   //选择或者取消标签,,箭头函数表示点击执行箭头函数，然后再传 tag 的值
                 )}
             </ol>

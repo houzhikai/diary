@@ -1,7 +1,10 @@
 import styled from "styled-components";
 import React, {useState} from "react";
 
-
+type Props = {
+    value: '-' | '+',
+    onChange: (value: '-'|'+')=> void
+}
 const Wrapper = styled.section`
   font-size: 24px;
     >ul {
@@ -25,19 +28,18 @@ const Wrapper = styled.section`
       }
     }
 `
-const CategorySection:React.FC = () => {
+const CategorySection:React.FC<Props> = (props) => {
 
     const categoryMap = {'-':'支出', '+':'收入'}
     const [categoryList] = useState<('-' | '+')[]>(['-', '+'])
-    const [category, setCategory] = useState('-')  // + 表示收入  - 表示支出
-
+    const category = props.value
 
     return (
         <Wrapper>
             <ul>
                 {categoryList.map(c=>
                 <li key={c} className={category === c ? 'selected' : ''}
-                onClick={()=> {setCategory(c)}}
+                onClick={()=> {props.onChange(c)}}
                 > {categoryMap[c]}
                 </li>)}
                 {/*  如果不想写重复的代码，可以用另一种方法*/}

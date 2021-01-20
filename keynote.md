@@ -56,5 +56,8 @@ create-react-app morney --template typescript（项目名可以自定）   全�
 23. PS： React onChange 和 HTML onChange 是不一样的
     `React onChange` 会在你`输入一个字`的时候就触发
     `HTML onchange` 会在`鼠标移走`的时候触发，早于 onBlur<br/>
-    但是,在这个项目里用`HTML onchange` 时输入一个字就触发，因为React 觉得这个不友好，自己改了规则  
+    但是,在这个项目里用`HTML onchange` 时输入一个字就触发，因为React 觉得这个不友好，自己改了规则
+24. `src/Money/NumberPadSection.tsx` 文件里 `line 25`里 会出现 `generateOutput` 函数类型undefined 的情况，那是因为 在`generateOutput.tsx` 里没有添加 `default`
+25. 
+
 

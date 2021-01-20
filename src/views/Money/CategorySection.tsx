@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import React, {useState} from "react";
 
 
-const CategorySection = styled.section`
+const Wrapper = styled.section`
   font-size: 24px;
     >ul {
       display: flex;
@@ -24,4 +25,28 @@ const CategorySection = styled.section`
       }
     }
 `
+const CategorySection:React.FC = () => {
+
+    const categoryMap = {'-':'支出', '+':'收入'}
+    const [categoryList] = useState<('-' | '+')[]>(['-', '+'])
+    const [category, setCategory] = useState('-')  // + 表示收入  - 表示支出
+
+
+    return (
+        <Wrapper>
+            <ul>
+                {categoryList.map(c=>
+                <li className={category === c ? 'selected' : ''}
+                onClick={()=> {setCategory(c)}}
+                > {categoryMap[c]}
+                </li>)}
+                {/*  如果不想写重复的代码，可以用另一种方法*/}
+                {/*<li className={category === '-' ? 'selected' : ''} onClick={()=>setCategory('-')}>支出</li>*/}
+                {/*<li className={category === '+' ? 'selected' : ''} onClick={()=>setCategory('+')}>收入</li>*/}
+            </ul>
+        </Wrapper>
+    )
+}
+
+
 export {CategorySection}

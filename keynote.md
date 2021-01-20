@@ -52,4 +52,9 @@ create-react-app morney --template typescript（项目名可以自定）   全�
 20. TS => 在声明变量后面加冒号和函数类型
     类型有 FunctionComponent（简写：FC），*string* ，*number* ，*boolean*
 21. 如果在 webstorm 中要改变组件名，需要先将最后 export 给断开，如果先改内部变量 ，其他关联名字也会智能跟随变化 
+22. 如果在输入备注的时候会打印出两遍，那就是 index.tsx 里<React.StrictMode>严格模式下出现的 Bug，也可以删除
+23. PS： React onChange 和 HTML onChange 是不一样的
+    `React onChange` 会在你`输入一个字`的时候就触发
+    `HTML onchange` 会在`鼠标移走`的时候触发，早于 onBlur<br/>
+    但是,在这个项目里用`HTML onchange` 时输入一个字就触发，因为React 觉得这个不友好，自己改了规则  
 

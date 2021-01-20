@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import React, {useState} from 'react'
-import {initialize} from "jest-circus/build/legacy-code-todo-rewrite/jestAdapterInit";
+import React, {useState} from 'react';
 
 
 const Wrapper = styled.section`

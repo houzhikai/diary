@@ -2,14 +2,9 @@ import Layout from "../component/layout";
 import React from "react";
 import styled from "styled-components";
 import { TagSection } from "./Money/TagSection";
-import { NotesSection } from "./Money/NotesSection";
+import { NoteSection } from "./Money/NoteSection";
 import { CategorySection } from "./Money/CategorySection";
 import { NumberPadSection } from "./Money/NumberPadSection";
-
-
-
-
-
 
 const MyLayout = styled(Layout)`
   display: flex;
@@ -19,17 +14,11 @@ const MyLayout = styled(Layout)`
 function Money() {
     // @ts-ignore
     return (
-        <MyLayout className=''>
-            <TagSection>
+        <MyLayout>
+            <TagSection />
 
-            </TagSection>
+            <NoteSection />
 
-            <NotesSection>
-                <label>
-                    <span>备注</span>
-                    <input type="text" placeholder='请添加备注'/>
-                </label>
-            </NotesSection>
 
             <CategorySection>
                 <ul>

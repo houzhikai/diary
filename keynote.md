@@ -47,6 +47,9 @@ create-react-app morney --template typescript（项目名可以自定）   全�
     参考文章 https://github.com/svg/svgo/blob/master/plugins/removeAttrs.js
 17. surround with Emmet 再输入命令，快速多行注释
 18. white-space: nowrap; //防止 前面的 备注 字样变成竖着的字样
-19.
-    
+19. 因为 Money 组件内容太多，所以将它进行模块化
+
+20. TS => 在声明变量后面加冒号和函数类型
+    类型有 FunctionComponent（简写：FC），*string* ，*number* ，*boolean*
+21. 如果在 webstorm 中要改变组件名，需要先将最后 export 给断开，如果先改内部变量 ，其他关联名字也会智能跟随变化 
 

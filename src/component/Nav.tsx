@@ -47,7 +47,7 @@ const  Nav = () => {
                 <li>
                     {/*在 element 中被选中的a标签才可以显示 class=“selected” 类*/}
                     {/*有了activeClassName 属性就可以去css中添加样式*/}
-                    <NavLink to="/tags" activeClassName="selected">
+                    <NavLink to="/tags"  activeClassName="selected">
                         <Icon name="tag" />
                         标签页
                     </NavLink>

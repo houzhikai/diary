@@ -13,13 +13,13 @@ try {importAll(require.context('icons', true, /\.svg$/));} catch (error) {consol
 
 //类型名称开头必须大写
 type Props = {
-    name: string
+    name?: string
 }
 
 const Icon = (props: Props) => {
     return(
         <svg className='icon'>
-            <use xlinkHref={'#' + props.name} />
+            { props.name && <use xlinkHref={'#' + props.name} />}
         </svg>
     )
 }

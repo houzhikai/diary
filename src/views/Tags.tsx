@@ -4,6 +4,7 @@ import {useTags} from "../useTags";
 import styled from "styled-components";
 import Icon from "../component/icon";
 import { Link } from "react-router-dom";
+import {Button} from "../component/Button";
 
 const TagList = styled.ol`
   background: #ffffff;
@@ -18,14 +19,6 @@ const TagList = styled.ol`
       align-items: center;
     }
   }
-`
-const Button = styled.button`
-  font-size: 18px;
-  border: none;
-  padding: 8px 12px;
-  background: #ffc300;
-  color: #222;
-  border-radius: 6px;
 `
 const Center = styled.div`
   display: flex;            //flex 默认是左右结构，所以加Span标签时不会有高度，必须将flex改为上下结构

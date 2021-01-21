@@ -3,7 +3,7 @@ import React, {ChangeEventHandler, useRef} from "react";
 import {Input} from "../../component/Input";
 
 const Wrapper = styled.section`
-  padding: 10px 16px;
+  padding: 14px 16px;
   font-size: 14px;
 `
 type Props = {
@@ -20,7 +20,7 @@ const NoteSection: React.FC<Props> =(props) => {
 
     return(
         <Wrapper>
-            <Input label='备注' type='text' value={note} onChange={onChange}/>
+            <Input label='备注：' type='text' value={note} onChange={onChange} placeholder='在此处记录信息'/>
             {/*<label>*/}
             {/*    <span>备注</span>*/}
             {/*    /!*  首先要将 input 改成受控组件 ， 添加value 和 onChang*!/*/}

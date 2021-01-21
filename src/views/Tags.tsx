@@ -5,6 +5,8 @@ import styled from "styled-components";
 import Icon from "../component/icon";
 import { Link } from "react-router-dom";
 import {Button} from "../component/Button";
+import {Center} from "../component/Center";
+import {Space} from "../component/Space";
 
 const TagList = styled.ol`
   background: #ffffff;
@@ -20,15 +22,6 @@ const TagList = styled.ol`
     }
   }
 `
-const Center = styled.div`
-  display: flex;            //flex 默认是左右结构，所以加Span标签时不会有高度，必须将flex改为上下结构
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-`
-const Space = styled.div`
-  height: 48px;
-`
 function Tags() {
     const {tags} = useTags()
     return (
@@ -43,11 +36,13 @@ function Tags() {
                     </li>)}
             </TagList>
             <Center>
-                <Space> </Space>
+                <Space />
+                <Space />
+                <Space />
                 <Button>新增标签</Button>
             </Center>
 
         </Layout>
-    )
+    );
 }
 export default Tags

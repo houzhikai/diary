@@ -14,7 +14,7 @@ type Category = '-' | '+'
 
 function Money() {
     const [selected, setSelected] = useState({    //定一个初始值
-        tags: [] as string[],  //初始值的tags是空的
+        tagIds: [] as number[],  //初始值的tags是空的
         note: '',
         category: '-' as Category,
         amount: 0
@@ -29,12 +29,12 @@ function Money() {
 
     return (
         <MyLayout>
-            {selected.tags.join(',')}<hr/>
+            {selected.tagIds.join(',')}<hr/>
             {selected.note}<hr/>
             {selected.category}<hr/>
             {selected.amount}
-            <TagSection value={selected.tags}
-                        onChange={tags => onChange({tags}) }/>
+            <TagSection value={selected.tagIds}
+                        onChange={tagIds => onChange({tagIds}) }/>
             <NoteSection value={selected.note}
                          onChange={note => onChange({note}) }/>
             <CategorySection value={selected.category}

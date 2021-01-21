@@ -64,6 +64,8 @@ create-react-app morney --template typescript（项目名可以自定）   全�
     
 27. 在`Tages.tsx` 里加一个路由，就需要在 `App.tsx`里添加一个对应的路由  ` <Route path="/tags/:tag" component={TagEdit} />`必须写在`<Route path="/tags" component={Tags} />`前面
 要是加上`exact`精准匹配就不一样了
-        
+    
+28. 函数封装法：好处--->简单    
+    class封装法：好处===> 可以操作的更多
 
 

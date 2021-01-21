@@ -27,7 +27,6 @@ const Button = styled.button`
   color: #222;
   border-radius: 6px;
 `
-
 const Center = styled.div`
   display: flex;            //flex 默认是左右结构，所以加Span标签时不会有高度，必须将flex改为上下结构
   justify-content: center;
@@ -43,9 +42,9 @@ function Tags() {
         <Layout>
             <TagList>
                 {tags.map(tag =>
-                    <li key={tag}>
+                    <li key={tag.id}>
                         <Link to={'/tags/' + tag}>
-                            <span className='oneLine'>{tag}</span>
+                            <span className='oneLine'>{tag.name}</span>
                             <Icon name='right'/>
                         </Link>
                     </li>)}

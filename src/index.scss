@@ -13,12 +13,14 @@ a {
   color: inherit;
 }
 
-button {
+button,input {
   font-family: inherit;
+  font-size: inherit;
 }
 
 body {
-  margin: 0;
+
+  margin: 0 ;
   font-family: $font-hei;
   font-size: 16px;  //默认字体 16px
   line-height: 1.2;  // 默认行高1.2倍

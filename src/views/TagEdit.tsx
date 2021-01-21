@@ -21,7 +21,7 @@ const Topbar = styled.header`
   background: #fff;
 `
 const InputWrapper = styled.div`
-  padding: 12px;
+  padding: 4px 12px;
   margin-top: 8px;
   background: #fff;
 `
@@ -29,9 +29,9 @@ const TagEdit:React.FC =() => {
     // const {tags} = useTags()
     const {findTag} = useTags()
     let {id} = useParams<Params>()
+    const tag = findTag(parseInt(id))
 
     // const tag = tags.filter(tag => tag.id === parseInt(id))[0]  //找ID的过程
-    const tag = findTag(parseInt(id))
     return(
         <Layout>
             <Topbar>
@@ -40,7 +40,7 @@ const TagEdit:React.FC =() => {
                 <Icon />
             </Topbar>
             <InputWrapper>
-                <Input label='备注：' type='text' placeholder='在此处记录信息' />
+                <Input label='标签名：' type='text' placeholder='在此处记录信息' value={tag.name}/>
             </InputWrapper>
             <Center>
                 <Space />

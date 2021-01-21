@@ -46,3 +46,8 @@ code {
   display: block;
   clear: both;
 }
+.oneLine {// 文字过长，显示一行，多的内容省略号代替
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

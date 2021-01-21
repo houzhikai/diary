@@ -61,6 +61,9 @@ create-react-app morney --template typescript（项目名可以自定）   全�
 25. 难点：收集表单数据（Money里的（MyLayout组件））
 26. `useTags.tsx` 函数名必须是 useTags， 因为自定义函数名必须是 use 开头<br/>
         return 必须是对象，不能是数组（TS报错）
+    
+27. 在`Tages.tsx` 里加一个路由，就需要在 `App.tsx`里添加一个对应的路由  ` <Route path="/tags/:tag" component={TagEdit} />`必须写在`<Route path="/tags" component={Tags} />`前面
+要是加上`exact`精准匹配就不一样了
         
 
 

@@ -10,6 +10,7 @@ import Statistics from "./views/Statistics";
 import Tags from "./views/Tags";
 import NoMatch from "./views/NoMatch";
 import styled from "styled-components";
+import {TagEdit} from "./views/TagEdit";
 
 //所有的字的默认颜色是 #333
 const AppWrapper = styled.div`
@@ -21,6 +22,8 @@ const AppWrapper = styled.div`
         <AppWrapper>
             <Router>
                 <Switch>
+                    <Route path="/tags/:tag" exact component={TagEdit} />
+
                     <Route path="/tags" component={Tags} />
 
                     <Route path="/money" component={Money} />

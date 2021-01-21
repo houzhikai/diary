@@ -22,7 +22,7 @@ const AppWrapper = styled.div`
         <AppWrapper>
             <Router>
                 <Switch>
-                    <Route path="/tags/:tag" exact component={TagEdit} />
+                    <Route path="/tags/:id" exact component={TagEdit} />
 
                     <Route path="/tags" component={Tags} />
 

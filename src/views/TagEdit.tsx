@@ -27,9 +27,26 @@ const InputWrapper = styled.div`
 `
 const TagEdit:React.FC =() => {
     // const {tags} = useTags()
-    const {findTag, updateTag} = useTags()
+    const {findTag, updateTag, deleteTag} = useTags()
     let {id: idString} = useParams<Params>()
     const tag = findTag(parseInt(idString))
+
+    const tagContent = (tag: {id:number, name:string}) => (
+        <div> {/*复用代码*/}
+            <InputWrapper>
+                <Input label='标签名：' type='text' placeholder='在此处记录信息' value={tag.name}
+                       onChange={(e) => {
+                           updateTag(tag.id, {name: e.target.value})
+                       }}/>
+            </InputWrapper>
+            <Center>
+                <Space />
+                <Space />
+                <Space />
+                <Button onClick={()=>deleteTag(tag.id)}>删除标签</Button>
+            </Center>
+        </div>
+    )
 
     // const tag = tags.filter(tag => tag.id === parseInt(id))[0]  //找ID的过程
     return(
@@ -39,18 +56,10 @@ const TagEdit:React.FC =() => {
                     <span>编辑标签</span>
                 <Icon />
             </Topbar>
-            <InputWrapper>
-                <Input label='标签名：' type='text' placeholder='在此处记录信息' value={tag.name}
-                       onChange={(e) => {
-                          updateTag(tag.id, {name: e.target.value})
-                       }}/>
-            </InputWrapper>
-            <Center>
-                <Space />
-                <Space />
-                <Space />
-                <Button>删除标签</Button>
-            </Center>
+
+            { tag ? tagContent(tag) : <div>tag 不存在</div> }
+
+
         </Layout>
     )
 }

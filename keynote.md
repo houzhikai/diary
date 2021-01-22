@@ -68,4 +68,7 @@ create-react-app morney --template typescript（项目名可以自定）   全�
 28. 函数封装法：好处--->简单    
     class封装法：好处===> 可以操作的更多
 
+29. 想要合并 className ，需要安装
+`yarn add classnames`和`
+yarn add --dev @types/classnames`
 

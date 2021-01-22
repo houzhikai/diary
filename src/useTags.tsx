@@ -21,23 +21,25 @@ const useTags = () => {             //自定义一个hook（在自定义函数�
         }
         return result
     }
-    const updateTag = (id:number, obj: {name:string}) =>{
-        // 获取你要改的 tag 的下标
-       const index = findTagIndex(id)
-        //深拷贝 tags 得到 tagsClone
-        const tagsClone = JSON.parse(JSON.stringify(tags))
-        //把 tagsClone 的第 index 删掉，换成 {id： id， name： obj.name}
-        const newTas = tagsClone.splice(index, 1, {id:id, name: obj.name})
-        setTags(tagsClone)
+    const updateTag = (id:number, {name}:{name: string}) =>{
+       setTags(tags.map(tag =>  tag.id === id ? {id, name} : tag ))
+       //  // 获取你要改的 tag 的下标
+       // const index = findTagIndex(id)
+       //  //深拷贝 tags 得到 tagsClone
+       //  const tagsClone = JSON.parse(JSON.stringify(tags))
+       //  //把 tagsClone 的第 index 删掉，换成 {id： id， name： obj.name}
+       //  const newTas = tagsClone.splice(index, 1, {id:id, name: obj.name})
+       //  setTags(tagsClone)
     }
     const deleteTag = (id:number) => {
-        // 获取你要改的 tag 的下标
-        const index = findTagIndex(id)
-        //深拷贝 tags 得到 tagsClone
-        const tagsClone = JSON.parse(JSON.stringify(tags))
-        //把 tagsClone 的第 index 删掉
-        const newTas = tagsClone.splice(index, 1)
-        setTags(tagsClone)
+        setTags(tags.filter(tag => tag.id !== id))  //filter 会生成一个新的数组
+        // // 获取你要改的 tag 的下标
+        // const index = findTagIndex(id)
+        // //深拷贝 tags 得到 tagsClone
+        // const tagsClone = JSON.parse(JSON.stringify(tags))
+        // //把 tagsClone 的第 index 删掉
+        // const newTas = tagsClone.splice(index, 1)
+        // setTags(tagsClone)
     }
     return { tags, setTags, findTag, updateTag, findTagIndex, deleteTag }     //通过对象的形式 return 出去
 }

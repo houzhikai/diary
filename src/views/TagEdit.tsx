@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory } from "react-router-dom";
 import {useTags} from "../useTags";
 import Layout from "../component/layout";
 import Icon from "../component/icon";
@@ -47,19 +47,20 @@ const TagEdit:React.FC =() => {
             </Center>
         </div>
     )
-
+    const history = useHistory()
+    const oncClickBack = () => {
+        history.goBack()
+    }
     // const tag = tags.filter(tag => tag.id === parseInt(id))[0]  //找ID的过程
     return(
         <Layout>
             <Topbar>
-                <Icon name='left' />
+                <Icon name='left'  onClick={oncClickBack} />
                     <span>编辑标签</span>
                 <Icon />
             </Topbar>
 
             { tag ? tagContent(tag) : <div>tag 不存在</div> }
-
-
         </Layout>
     )
 }

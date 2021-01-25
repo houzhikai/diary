@@ -17,7 +17,6 @@ const NoteSection: React.FC<Props> =(props) => {
             props.onChange(e.target.value)
         }
 
-
     return(
         <Wrapper>
             <Input label='备注：' type='text' value={note} onChange={onChange} placeholder='在此处记录信息'/>

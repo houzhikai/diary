@@ -23,7 +23,6 @@ const NavWrapper = styled.nav`
          display: flex;
          flex-direction: column;
          padding: 6px 0;
-         font-weight: 500;
          align-items: center;
          .icon {
            width: 24px;

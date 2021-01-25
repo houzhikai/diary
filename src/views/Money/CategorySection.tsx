@@ -23,6 +23,11 @@ const Wrapper = styled.section`
           bottom: 0;
         }
       }
+      @media (max-width: 320px) {
+        > li {
+          padding: 10px;
+        }
+      }
     }
 `
 type Props = {

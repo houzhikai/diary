@@ -12,6 +12,7 @@ const Wrapper = styled.section`
     box-shadow: inset 0 -5px 5px -5px rgba(0, 0, 0, 0.3), //内阴影  只有下面有阴影
                 inset 0 5px 5px -5px rgba(0, 0, 0, 0.25);
   }
+  
 
   > .pad { //面板
 
@@ -66,6 +67,15 @@ const Wrapper = styled.section`
         background: #9a9a9a;
       }
     }
+    @media (max-width: 320px) {
+      > button {
+        height: 40px;
+        &.OK {
+          height: 80px;
+        }
+      }
+    }
   }
+ 
 `
 export {Wrapper}

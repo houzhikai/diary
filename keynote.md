@@ -72,5 +72,6 @@ create-react-app morney --template typescript（项目名可以自定）   全�
 yarn add --dev @types/classnames`
 30. 显示日期命令` yarn add dayjs`
 `{day(r.createAt).format('YYYY年MM月DD日')}`
+31. justify-content: flex-end;      //它的存在会影响滚轮的存在
    
 

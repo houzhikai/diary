@@ -9,8 +9,10 @@ const Wrapper = styled.section`
   flex-grow: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  //justify-content: flex-end;      //它的存在会影响滚轮的存在
   align-items: flex-start;
+  flex-shrink: 1;
+  overflow: auto;   //固定下面不懂，是有标签栏动
   > ol {
       margin: 0 -12px;
     > li {
@@ -28,7 +30,7 @@ const Wrapper = styled.section`
     }
   }
   > button {
-    background: none;
+    //background: none;
     border: none;
     padding: 2px 4px;
     border-bottom: 2px solid #333;
@@ -61,6 +63,7 @@ const TagSection: React.FC<Props> = (props) => {
 const getClass = (tagId:number) => selectedTagIds.indexOf(tagId) >=0 ? 'selected' : ''
     return (
         <Wrapper>
+            <button onClick={addTag}>新增标签</button>
             <ol>
                 {/* 每次 map 遍历完都要加上 key ，因为tag不会重复，所以可以作为 key，不能用 index*/}
                 { tags.map(tag => //给 li 添加className，如果被选中，返回 selected ，没有的话返回空字符串
@@ -68,7 +71,7 @@ const getClass = (tagId:number) => selectedTagIds.indexOf(tagId) >=0 ? 'selected
                         {tag.name} </li>   //选择或者取消标签,,箭头函数表示点击执行箭头函数，然后再传 tag 的值
                 )}
             </ol>
-            <button onClick={addTag}>新增标签</button>
+
         </Wrapper>
     )
 }

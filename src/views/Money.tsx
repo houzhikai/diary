@@ -36,7 +36,7 @@ function Money() {
         }
     }
     return (
-        <MyLayout>
+        <MyLayout >
             {/*{selected.tagIds.join(',')}<hr/>   // 展示数据 */}
             {/*{selected.note}<hr/>*/}
             {/*{selected.category}<hr/>*/}

@@ -1,10 +1,7 @@
 import styled from "styled-components";
 import React, {useState} from "react";
 
-type Props = {
-    value: '-' | '+',
-    onChange: (value: '-'|'+')=> void
-}
+
 const Wrapper = styled.section`
   font-size: 24px;
     >ul {
@@ -12,7 +9,7 @@ const Wrapper = styled.section`
       >li {
         width: 50%;
         text-align: center;
-        background: #c4c4c4;
+        background: #fabf00;
         padding: 18px 0;
         position: relative;
         &.selected::after {    //不建议直接在 selected 上直接加 border，因为它会占用体积，使得上下高度不一致
@@ -28,8 +25,11 @@ const Wrapper = styled.section`
       }
     }
 `
+type Props = {
+    value: '-' | '+',
+    onChange: (value: '-'|'+')=> void
+}
 const CategorySection:React.FC<Props> = (props) => {
-
     const categoryMap = {'-':'支出', '+':'收入'}
     const [categoryList] = useState<('-' | '+')[]>(['-', '+'])
     const category = props.value

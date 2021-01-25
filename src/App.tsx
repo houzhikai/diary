@@ -16,7 +16,6 @@ import {TagEdit} from "./views/TagEdit";
 const AppWrapper = styled.div`
   color: #333;
 `
-
  function App() {
     return (
         <AppWrapper>

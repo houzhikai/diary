@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams, useHistory } from "react-router-dom";
 import {useTags} from "../hooks/useTags";
-import Layout from "../component/layout";
+import Layout from "../component/Layout";
 import Icon from "../component/icon";
 import {Button} from "../component/Button";
 import styled from "styled-components";

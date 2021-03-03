@@ -6,11 +6,12 @@ import {
     Redirect
 } from "react-router-dom";
 import Money from "./views/Money";
-import Statistics from "./views/Statistics";
+import {Statistics} from "./views/Statistics";
 import Tags from "./views/Tags";
 import NoMatch from "./views/NoMatch";
 import styled from "styled-components";
 import {TagEdit} from "./views/TagEdit";
+import {Detail} from "./views/Detail";
 
 //所有的字的默认颜色是 #333
 const AppWrapper = styled.div`
@@ -24,12 +25,10 @@ const AppWrapper = styled.div`
                     <Route path="/tags/:id" exact component={TagEdit} />
 
                     <Route path="/tags" component={Tags} />
-
+                    <Route path="/detail" component={Detail} />
                     <Route path="/money" component={Money} />
-
                     <Route path="/statistics" component={Statistics} />
-
-                    <Redirect exact from="/" to="/tags" />
+                    <Redirect exact from="/" to="/detail" />
 
                     <Route path="*" component={NoMatch} />
                 </Switch>

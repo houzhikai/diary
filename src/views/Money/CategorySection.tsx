@@ -1,59 +1,56 @@
-import styled from "styled-components";
 import React, {useState} from "react";
+import styled from "styled-components";
 
 
 const Wrapper = styled.section`
   font-size: 24px;
-    >ul {
-      display: flex;
-      >li {
-        width: 50%;
-        text-align: center;
-        background: #fabf00;
-        padding: 18px 0;
-        position: relative;
-        &.selected::after {    //不建议直接在 selected 上直接加 border，因为它会占用体积，使得上下高度不一致
-          content: '';
-          display: block;
-          height: 3px;
-          background: #333;
-          position: absolute;
-          width: 100%;
-          left: 0;  //默认都要加上这句话
-          bottom: 0;
-        }
-      }
-      @media (max-width: 320px) {
-        > li {
-          padding: 10px;
-        }
+  background:#f9db61;
+  > ul {
+    display: flex;
+
+    > li {
+      width: 50%;
+      text-align: center;
+      padding: 16px 0;
+      position: relative;
+
+      &.selected::after {
+        content: '';
+        display: block;
+        height: 3px;
+        background: #333;
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        left: 0;
       }
     }
+  }
 `
 type Props = {
-    value: '-' | '+',
-    onChange: (value: '-'|'+')=> void
+    value: '-' | '+';
+    onChange: (value: '-' | '+')=>void;
+    className?: string
 }
-const CategorySection:React.FC<Props> = (props) => {
-    const categoryMap = {'-':'支出', '+':'收入'}
-    const [categoryList] = useState<('-' | '+')[]>(['-', '+'])
-    const category = props.value
+
+const CategorySection: React.FC<Props> = (props) => {
+    const stateMap = {'-':'支出', '+':'收入'}
+    type states = keyof typeof stateMap
+    const [stateList] = useState<states[]>(['-','+'])
 
     return (
         <Wrapper>
-            <ul>
-                {categoryList.map(c=>
-                <li key={c} className={category === c ? 'selected' : ''}
-                onClick={()=> {props.onChange(c)}}
-                > {categoryMap[c]}
-                </li>)}
-                {/*  如果不想写重复的代码，可以用另一种方法*/}
-                {/*<li className={category === '-' ? 'selected' : ''} onClick={()=>setCategory('-')}>支出</li>*/}
-                {/*<li className={category === '+' ? 'selected' : ''} onClick={()=>setCategory('+')}>收入</li>*/}
+            <ul className={props.className? props.className:""}>
+                {stateList.map(item =>
+                    <li key={item}
+                        className={props.value===item ? "selected":""}
+                        onClick={()=> props.onChange(item)}>
+                        {stateMap[item]}
+                    </li>
+                )}
             </ul>
         </Wrapper>
     )
 }
 
-
-export {CategorySection}
+export default CategorySection

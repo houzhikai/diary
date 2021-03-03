@@ -73,5 +73,9 @@ yarn add --dev @types/classnames`
 30. 显示日期命令` yarn add dayjs`
 `{day(r.createAt).format('YYYY年MM月DD日')}`
 31. justify-content: flex-end;      //它的存在会影响滚轮的存在
+32. 图库用 echarts 工具
+官网为 `https://echarts.apache.org/examples/en/index.html`
+    
+33. 适配移动端 `<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">`
    
 

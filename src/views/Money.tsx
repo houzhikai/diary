@@ -1,61 +1,52 @@
-import Layout from "../component/layout";
-import React, { useState} from "react";
+import React, {useState} from "react";
 import styled from "styled-components";
-import {TagSection} from "./Money/TagSection";
-import {NoteSection} from "./Money/NoteSection";
-import {CategorySection} from "./Money/CategorySection";
-import {NumberPadSection} from "./Money/NumberPadSection";
 import {useRecords} from "../hooks/useRecords";
+import Layout from "../component/Layout";
+import CategorySection from "./Money/CategorySection";
+import {TagsSection} from "./Money/TagsSection";
+import NoteSection from "./Money/NoteSection";
+import NumberSection from "./Money/NumberSection";
 
 const MyLayout = styled(Layout)`
   display: flex;
   flex-direction: column;
 `
-type Category = '-' | '+'
 
-const defaultFormData = {
-    tagIds: [] as number[],  //初始值的tags是空的
+
+type  MoneyType = '-' | '+'
+
+const defaultMoney = {
+    tagId: 0,
     note: '',
-    category: '-' as Category,
-    amount: 0
+    moneyType: '-' as MoneyType,
+    amount: '0'
 }
-const CategoryWrapper = styled.div`
-  background: #c4c4c4;
-`
 
-function Money() {
-    const [selected, setSelected] = useState(defaultFormData)
+const Money = () => {
+    const [selected, setSelected] = useState(defaultMoney)
     const {addRecord} = useRecords()
     const onChange = (obj: Partial<typeof selected>) => {
-        setSelected({...selected, ...obj })
+        setSelected({
+            ...selected,
+            ...obj
+        })
     }
-    const submit = () =>{
-        if(addRecord(selected)) {
+    const onSubmit = () => {
+        if(addRecord(selected)){
+            addRecord(selected)
             alert('保存成功')
-            setSelected(defaultFormData)
+            setSelected(defaultMoney)
         }
     }
     return (
-        <MyLayout >
-            {/*{selected.tagIds.join(',')}<hr/>   // 展示数据 */}
-            {/*{selected.note}<hr/>*/}
-            {/*{selected.category}<hr/>*/}
-            {/*{selected.amount}*/}
-            {/*{JSON.stringify(selected)}*/}
-            <TagSection value={selected.tagIds}
-                        onChange={tagIds => onChange({tagIds}) }/>
-            <NoteSection value={selected.note}
-                         onChange={note => onChange({note}) }/>
-            <CategoryWrapper>
-                <CategorySection value={selected.category}
-                                 onChange={category => onChange({category})}/>
-            </CategoryWrapper>
-            <NumberPadSection value={selected.amount}
-                              onChange={amount => onChange({amount})}
-                              onOk={submit}
-            />
+        <MyLayout>
+                <CategorySection value={selected.moneyType} onChange={(moneyType:MoneyType) => onChange({moneyType})}/>
+            <TagsSection tagType={selected.moneyType} tagId={selected.tagId} onChange={tagId => onChange({tagId})}/>
+            <NoteSection value={selected.note} onChange={note => onChange({note})}/>
+            <NumberSection value={selected.amount} onChange={amount => onChange({amount})}
+                           onOk={onSubmit}/>
         </MyLayout>
-    )
+    );
 }
 
-export default Money
+export default Money;

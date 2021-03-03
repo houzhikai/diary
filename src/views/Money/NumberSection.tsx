@@ -5,7 +5,7 @@ import Icon from "../../component/icon";
 const NumberSection = styled.section`
   display: flex;
   flex-direction: column;
-  > .output{
+  > .output {
     background: #f5f5f5;
     font-size: 20px;
     line-height: 30px;
@@ -15,8 +15,7 @@ const NumberSection = styled.section`
                 inset 0 3px 3px -3px rgba(0,0,0,0.2);
     overflow: auto;
   }
-  > .pad{
-      
+  > .pad {
     > button {
       float: left;
       width: 25%;

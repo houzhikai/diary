@@ -5,19 +5,19 @@ import {useRecords} from "./useRecords";
 
 type  MoneyType = '-' | '+'
 const initTags = [
-    {id: CreateId(), name: '餐饮', type: '-', icon:'canyin'},
-    {id: CreateId(), name: '购物', type: '-', icon:'gouwu'},
-    {id: CreateId(), name: '交通', type: '-', icon:'gongjiao'},
-    {id: CreateId(), name: '医疗', type: '-', icon:'yiliao'},
-    {id: CreateId(), name: '水果', type: '-', icon:'shuiguo'},
-    {id: CreateId(), name: '零食', type: '-', icon:'lingshi'},
-    {id: CreateId(), name: '话费', type: '-', icon:'call'},
-    {id: CreateId(), name: '宠物', type: '-', icon:'chongwu'},
-    {id: CreateId(), name: '旅行', type: '-', icon:'feiji'},
+    {id: CreateId(), name: '餐饮', type: '-', icon:'food'},
+    {id: CreateId(), name: '购物', type: '-', icon:'shop'},
+    {id: CreateId(), name: '交通', type: '-', icon:'traffic'},
+    {id: CreateId(), name: '日用', type: '-', icon:'daily'},
+    {id: CreateId(), name: '水果', type: '-', icon:'fruit'},
     {id: CreateId(), name: '娱乐', type: '-', icon:'KTV'},
-    {id: CreateId(), name: '工资', type: '+', icon:'gongzi'},
-    {id: CreateId(), name: '兼职', type: '+', icon:'jianzhi'},
-    {id: CreateId(), name: '其他', type: '+', icon:'qian'}
+    {id: CreateId(), name: '通讯', type: '-', icon:'communication'},
+    {id: CreateId(), name: '旅行', type: '-', icon:'travel'},
+    {id: CreateId(), name: '居家', type: '-', icon:'sofa'},
+    {id: CreateId(), name: '工资', type: '+', icon:'wage'},
+    {id: CreateId(), name: '兼职', type: '+', icon:'partTime'},
+    {id: CreateId(), name: '理财', type: '+', icon:'financial'},
+    {id: CreateId(), name: '其他', type: '+', icon:'other'}
 ]
 // 自定义hook
 function useTags() {

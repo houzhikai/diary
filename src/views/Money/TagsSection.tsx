@@ -99,7 +99,7 @@ const tagType = getTypeTag(props.tagType)
                 {/*()=>addTag(props.tagType)*/}
                 <li>
                     <span onClick={()=>history.push('/tags')} className='btn'>
-                        <Icon name="shezhi"/>
+                        <Icon name="setting"/>
                     </span>
                     <span>设置</span>
                 </li>

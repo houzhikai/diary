@@ -75,7 +75,7 @@ const Tags = () => {
         <div>
             <Topbar>
                 <Icon name='left' onClick={()=>history.goBack()} />
-                <span>编辑标签</span>
+                <span>类别设置</span>
                 <Icon />
             </Topbar>
 

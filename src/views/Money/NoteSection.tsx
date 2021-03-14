@@ -30,12 +30,11 @@ const Component: React.FC<Props> = (props)=>{
 
     return (
         <NoteSection>
-            <Input label='备注'
+            <Input label='备注：'
                    onChange={onChange}
-                   placeholder="在这里添加备注"
+                   placeholder="点击写备注..."
                    value={note}
                    type="text"/>
-
               {/*受控组件：<input type="text"
                      placeholder="在这里添加备注"
                      value={note}

@@ -1,0 +1,20 @@
+.side {
+  position: fixed;
+  left: 0;
+  top: 60%;
+  width: 100%;
+  > .date-header {
+    background-color: #F9DB61;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 30px;
+    > .date-title {
+      font-size: 16px;
+    }
+  }
+  .date-picker {
+    background-color: #fff;
+  }
+
+}

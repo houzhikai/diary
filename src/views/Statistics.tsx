@@ -1,10 +1,11 @@
 import Layout from '../component/Layout'
 import {useState} from 'react'
-import {useRecords} from '../hooks/useRecords'
+import {RecordItem, useRecords} from '../hooks/useRecords'
 import styled from 'styled-components'
 import {TypeSection} from './Money/TypeSction'
 import {Duration} from './Statistics/Divuration'
 import {List} from './Statistics/List'
+import {timeRule} from '../component/Day'
 
 const StaWrapper = styled.div`
   display: flex;
@@ -60,31 +61,38 @@ const Statistics = () => {
     const [category, setCategory] = useState<'-' | '+'>('-')
     const {records} = useRecords()
     const [toggle, setToggle] = useState(false)
+    const hash: { [K: string]: RecordItem[] } = {}
     const selectedRecords = records.filter(r => r.moneyType === category)
+    selectedRecords.forEach(r=> {
+        let key =''
+        key = timeRule(r.createAt)
+        if(!(key in hash)) {
+            hash[key] = []
+        }
+        hash[key].push(r)
+    })
     const onToggle = () => {
         toggle ? setToggle(false) : setToggle(true)
     }
     return (
         <Layout>
-            <div>
-                <StaWrapper>
-                    {/*支出和收入切换*/}
-                    <TypeWrapper>
-                        <div className='title' onClick={onToggle}>{stateMap[category]} ▼</div>
-                        {toggle ? <div className='type-control'>
-                            <TypeSection value={category}
-                                         onChange={value => {
-                                             setCategory(value)
-                                             setToggle(false)
-                                         }}/>
-                        </div> : ''}
-                    </TypeWrapper>
-                    {/*周月年*/}
-                    <Duration/>
+            <StaWrapper>
+                {/*支出和收入切换*/}
+                <TypeWrapper>
+                    <div className='title' onClick={onToggle}>{stateMap[category]} ▼</div>
+                    {toggle ? <div className='type-control'>
+                        <TypeSection value={category}
+                                     onChange={value => {
+                                         setCategory(value)
+                                         setToggle(false)
+                                     }}/>
+                    </div> : ''}
+                </TypeWrapper>
+                {/*周月年*/}
+                <Duration/>
 
-                    <List/>
-                </StaWrapper>
-            </div>
+                <List/>
+            </StaWrapper>
         </Layout>
     )
 }

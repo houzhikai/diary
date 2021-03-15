@@ -2,6 +2,11 @@ import React, {useEffect, useState} from 'react'
 import {RecordItem} from '../../hooks/useRecords'
 import {timeRule} from '../../component/Day'
 import styled from 'styled-components'
+import {Echarts} from './Echarts'
+import NoPage from '../Detail/NoPage'
+import {IconBox} from '../Detail/IconBox'
+import Icon from '../../component/icon'
+import {useTags} from '../../hooks/useTags'
 
 const Wrapper = styled.div`
     overflow: auto;
@@ -37,8 +42,10 @@ const Wrapper = styled.div`
       border-bottom: 1px solid #EBEBEB;
     }
   }
-  .maxheight{
+  .maxHeight{
     height:100%;
+    .list-title {
+    margin: 0 auto;
   }
 `
 const Header = styled.div`
@@ -71,6 +78,8 @@ const Header = styled.div`
 const List: React.FC = () => {
     const hash: { [K: string]: RecordItem[] } = {}
     const [selected] = useState<'week' | 'month' | 'year'>('week')
+    const {getTag} = useTags()
+    const getTagById = (id:number)=>getTag(id)
     const array = Object.entries(hash).sort((a, b) => {
         if (a[0] === b[0]) return 0
         if (a[0] > b[0]) return 1
@@ -92,6 +101,23 @@ const List: React.FC = () => {
             return date
         }
     }
+    const setNewList = (List: RecordItem[])=> {
+        const newList: {[K:number]: number} ={}
+        List.forEach(r=> {
+            let key = r.tagId
+            if(!(key in newList)) {
+                newList[key] =0
+            }
+            newList[key] = newList[key]+parseFloat(r.amount)
+            newList[key] = parseFloat(newList[key].toFixed(2))
+        })
+        return  Object.entries(newList).sort((a, b) => {
+            if (a[1] === b[1]) return 0
+            if (a[1] > b[1]) return -1
+            if (a[1] < b[1]) return 1
+            return 0
+        })
+    }
     const dateDoc = () => {
         if (selected === 'week') {
             return '本周'
@@ -104,17 +130,43 @@ const List: React.FC = () => {
     return (
         <Wrapper className='date-list'>
             <Header>
-                {array.length === 0 ? <span>
-                    {dateDoc()}
-                </span> : array.map(([date]) =>
-                    <span key={date}
-                          className={dateSelect === date ? 'selected' : ''}
-                          onClick={() => setDateSelect(date)}>
+                {array.length === 0 ?
+                    <span className='selected'> {dateDoc()} </span> :
+                    array.map(([date]) =>
+                            <span key={date}
+                                  className={dateSelect === date ? 'selected' : ''}
+                                  onClick={() => setDateSelect(date)}>
                         {dateDecorate(date)}
                     </span>
-                )}
+                    )}
             </Header>
-            
+
+            {hash[dateSelect] === undefined ?
+                <section>
+                    <Echarts option={[]} selected={selected}/>
+                    <ul className='maxHeight'>
+                        <li className='list-title'>支出排行榜</li>
+                        <NoPage/>
+                    </ul>
+                </section> :
+                <section>
+                    <Echarts option={hash[dateSelect]} selected={selected}/>
+                    <ul>
+                        <li className='list-title'>支出排行榜</li>
+                        {setNewList(hash[dateSelect]).map(([tagId, records])=>
+                        <li key={tagId}>
+                            <IconBox className='iconBox'>
+                                <Icon name={getTagById(parseInt(tagId)).icon}/>
+                            </IconBox>
+                            <div className='listItem'>
+                                <span>{getTagById(parseInt(tagId)).name}</span>
+                                <span>￥{records}</span>
+                            </div>
+                        </li>
+                        )}
+                    </ul>
+                </section>
+            }
         </Wrapper>
     )
 }

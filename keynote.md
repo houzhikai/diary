@@ -78,4 +78,5 @@ yarn add --dev @types/classnames`
     
 33. 适配移动端 `<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">`
    
-
+34. 需要改进的地方：
+    将备注移到下面

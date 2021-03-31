@@ -6,7 +6,7 @@ const NumberSection = styled.section`
   display: flex;
   flex-direction: column;
   > .output {
-    background: #f5f5f5;
+    background: #fff;
     font-size: 20px;
     line-height: 30px;
     text-align: right;
@@ -47,6 +47,7 @@ type Props = {
 }
 
 const Component: React.FC<Props> = (props) => {
+
     // const [output, _setOutput] = useState('0')
     const output = props.value
 
@@ -103,6 +104,9 @@ const Component: React.FC<Props> = (props) => {
                     setOutput(output + text)
                 }
                 break;
+            case '今天':
+                console.log('今天')
+                break;
             case 'OK':
                 if(props.onOk){
                     props.onOk()
@@ -115,9 +119,7 @@ const Component: React.FC<Props> = (props) => {
 
     return (
         <NumberSection>
-            <div className="output">
-                {output}
-            </div>
+            <div className="output"> {output} </div>
             <div className="pad clearfix" onClick={onClickNumber}>
                 <button>7</button>
                 <button>8</button>
@@ -135,8 +137,6 @@ const Component: React.FC<Props> = (props) => {
                 <button>0</button>
                 <button> <Icon name='calendar'/>今天</button>
                 <button className="OK">OK</button>
-
-
             </div>
         </NumberSection>
     )

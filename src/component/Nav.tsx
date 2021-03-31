@@ -40,20 +40,17 @@ const Nav = ()=>{
             <ul>
                 <li>
                     <NavLink to="/detail" activeClassName="selected">
-                        <Icon name="detail" />
-                        明细
+                        <Icon name="detail" />明细
                     </NavLink>
                 </li>
                 <li>
                     <NavLink to="/money" activeClassName="selected" exact>
-                        <Icon name="money" />
-                        记账
+                        <Icon name="money" />记账
                     </NavLink>
                 </li>
                 <li>
                     <NavLink to="/statistics" activeClassName="selected">
-                        <Icon name="statistics" />
-                        图表
+                        <Icon name="statistics" />图表
                     </NavLink>
                 </li>
             </ul>

@@ -1,11 +1,11 @@
 import Layout from '../component/Layout'
 import {useState} from 'react'
 import {RecordItem, useRecords} from '../hooks/useRecords'
-import styled from 'styled-components'
 import {TypeSection} from './Money/TypeSction'
 import {Duration} from './Statistics/Divuration'
 import {List} from './Statistics/List'
 import {timeRule} from '../component/Day'
+import styled from 'styled-components'
 
 const StaWrapper = styled.div`
   display: flex;
@@ -19,6 +19,7 @@ const StaWrapper = styled.div`
 const TypeWrapper = styled.div`
   background-color: rgb(249, 219, 97);
   position: relative;
+
 
   > .title {
     font-size: 16px;
@@ -63,10 +64,10 @@ const Statistics = () => {
     const [toggle, setToggle] = useState(false)
     const hash: { [K: string]: RecordItem[] } = {}
     const selectedRecords = records.filter(r => r.moneyType === category)
-    selectedRecords.forEach(r=> {
-        let key =''
+    selectedRecords.forEach(r => {
+        let key = ''
         key = timeRule(r.createAt)
-        if(!(key in hash)) {
+        if (!(key in hash)) {
             hash[key] = []
         }
         hash[key].push(r)

@@ -34,8 +34,7 @@ function useTags() {
         window.localStorage.setItem('tags', JSON.stringify(tags))
     }, [tags])
 
-
-    const findTag = (id: string) => tags.filter(item => item.id === parseInt(id))[0]
+    const findTag = (id: string) => tags.filter(item => item.id === parseInt(id))[0]    //在路径里找到对应的 id 值
     const findTagIndex = (id: number) => {
         let result = -1;
         for (let i = 0; i < tags.length; i++) {
@@ -47,11 +46,12 @@ function useTags() {
         return result
     }
     const updateTag = (id: number, type: MoneyType, icon: string, obj: { name: string }) => {
+        setTags(tags.map(tag => id === tag.id ? {id, icon, type, name: obj.name} : tag));
+        //这里是 深拷贝的代码
         // const index = findTagIndex(id);
         // const tagsClone = JSON.parse(JSON.stringify(tags));
         // tagsClone.splice(index, 1, {id: id, name: obj.name});
         // setTags(tagsClone);
-        setTags(tags.map(tag => id === tag.id ? {id, icon, type, name: obj.name} : tag));
     }
 
     const {getRecordById} = useRecords()

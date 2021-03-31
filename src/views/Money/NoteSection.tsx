@@ -3,7 +3,7 @@ import styled from "styled-components";
 import {Input} from "../../component/Input";
 
 const NoteSection = styled.section`
-  background-color: #fff;
+  background-color: #f5f5f5;
   padding: 0 16px;
   font-size: 14px;
 `
@@ -30,11 +30,7 @@ const Component: React.FC<Props> = (props)=>{
 
     return (
         <NoteSection>
-            <Input label='备注：'
-                   onChange={onChange}
-                   placeholder="点击写备注..."
-                   value={note}
-                   type="text"/>
+            <Input label='备注：' type="text" onChange={onChange} placeholder="点击写备注..." value={note}  />
               {/*受控组件：<input type="text"
                      placeholder="在这里添加备注"
                      value={note}

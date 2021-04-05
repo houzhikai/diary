@@ -1,12 +1,12 @@
 import React, {useState} from "react";
-import {useTags} from "../../hooks/useTags";
+import {useTags} from "../hooks/useTags";
 import styled from "styled-components";
 import {Link, useHistory} from "react-router-dom";
-import Icon from "../../component/icon";
-import {TypeSection} from "./TypeSction";
-import {Button} from "../../component/Button";
-import {Topbar} from "./CSS/Topbar";
-import {BtnBox} from "./CSS/BtnBox";
+import Icon from "../component/icon";
+import {TypeSection} from "./Money/TypeSction";
+import {Button} from "../component/Button";
+import {Topbar} from "./Money/CSS/Topbar";
+import {BtnBox} from "./Money/CSS/BtnBox";
 
 const TagType = styled.div`
   padding: 5px 0 10px;
@@ -52,6 +52,13 @@ const TagList = styled.ol`
       display: flex;
       justify-content: space-between;
       align-items: center;
+      > .icon:first-child {
+        background: #f9db61;
+        width: 30px;
+        height: 30px;
+        padding: 4px;
+        border-radius: 50%;
+      }
       > .tag-title{
         margin-right: auto;
         margin-left: 16px;

@@ -32,7 +32,7 @@ function useTags() {
 
     useUpdate(()=>{
         window.localStorage.setItem('tags', JSON.stringify(tags))
-    }, [tags])
+    }, tags)
 
     const findTag = (id: string) => tags.filter(item => item.id === parseInt(id))[0]    //在路径里找到对应的 id 值
     const findTagIndex = (id: number) => {

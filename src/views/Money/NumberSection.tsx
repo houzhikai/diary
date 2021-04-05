@@ -1,3 +1,4 @@
+
 import React from "react";
 import styled from "styled-components";
 import Icon from "../../component/icon";
@@ -59,6 +60,7 @@ const Component: React.FC<Props> = (props) => {
         }
         props.onChange(output)
     }
+
     const onClickNumber = (e: React.MouseEvent) => {
       const text = (e.target as HTMLButtonElement).textContent
         if(text === null){return;}

@@ -1,12 +1,13 @@
-import React from 'react'
-import {DatePicker} from './DatePicker'
-import styled from 'styled-components'
+import React from "react";
+import styled from "styled-components";
+import DatePicker from './DatePicker'
 
-const ASide = styled.aside`
+const DatePickerBox = styled.aside`
   position: fixed;
   left: 0;
-  top: 60%;
+  bottom: 0;
   width: 100%;
+
   > .date-header {
     background-color: #F9DB61;
     display: flex;
@@ -23,13 +24,12 @@ const ASide = styled.aside`
     background-color: #fff;
   }
 `
-
 type Props = {
-    month: string,
-    onchange: (month: string) => void,
-    datePickerToggle: () => void,
+    month:string,
+    onchange: (month:string)=>void,
+    datePickerToggle: ()=>void,
 }
-const DatePickerBox: React.FC<Props> = (props) => {
+const Component:React.FC<Props> = (props) => {
     const getDate = (...args: any) => {
         args[0].forEach((value: string, index: number) => {
             if (parseInt(value) + 1 < 10) {
@@ -38,20 +38,20 @@ const DatePickerBox: React.FC<Props> = (props) => {
         })
         props.onchange(args[0].join('-'))
     }
+
     return (
-        <ASide className='side'>
+
+        <DatePickerBox>
             <div className='date-header'>
-                <div/>
+                <div>年份选择</div>
                 <div className='date-title'>月份选择</div>
                 <div onClick={props.datePickerToggle}>确定</div>
             </div>
-            <DatePicker
-                onValueChange={getDate}
-                className='date-picker'
-                value={new Date(props.month)}
-            />
+            <DatePicker onValueChange={getDate} className='date-picker' value={new Date(props.month)}/>
+        </DatePickerBox>
 
-        </ASide>
     )
+
 }
-export {DatePickerBox}
+
+export default Component

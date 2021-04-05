@@ -2,9 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import {useRecords} from '../../hooks/useRecords'
 
-const Wrapper = styled.div`
+const Wrapper = styled.aside`
   padding: 10px 20px;
-  background-color: rgb(249, 219, 97);
+  background-color: #f9db61;
   display: flex;
   text-align: left;
   justify-content: space-between;
@@ -17,7 +17,7 @@ const Wrapper = styled.div`
     > span {
       display: block;
       font-size: 14px;
-      color: rgb(115, 104, 62);
+      color: #73683e;
     }
     > div {
       margin-top: 16px;
@@ -32,6 +32,7 @@ const Wrapper = styled.div`
     margin-left: 0;
   }
 `
+
 type Props = {
     value: string;
     onchange: () => void;
@@ -39,6 +40,7 @@ type Props = {
 const Aside: React.FC<Props> = (props) => {
     const {sumAmountByType, getAmountByDate} = useRecords()
     const records = getAmountByDate(props.value)
+
     return (
         <Wrapper>
             <div onClick={props.onchange}>

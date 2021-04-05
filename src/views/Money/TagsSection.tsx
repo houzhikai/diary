@@ -85,7 +85,6 @@ const TagsSection: React.FC<Props> = (props) => {
 const tagType = getTypeTag(props.tagType)
     return (
         <Wrapper>
-
             <ol>
                 {tagType.map(tag =>
                     <li key={tag.id}>
@@ -101,7 +100,7 @@ const tagType = getTypeTag(props.tagType)
                     <span onClick={()=>history.push('/tags')} className='btn'>
                         <Icon name="setting"/>
                     </span>
-                    <span>设置</span>
+                    <span>类别设置</span>
                 </li>
             </ol>
 

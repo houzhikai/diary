@@ -3,11 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.scss';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import 'antd-mobile/dist/antd-mobile.css'
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    <App /> ,
   document.getElementById('root')
 );
 

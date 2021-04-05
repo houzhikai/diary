@@ -4,8 +4,8 @@ import {Topbar} from './Money/CSS/Topbar'
 import Icon from '../component/icon'
 import {Aside} from './Detail/Aside'
 import {day} from '../component/Day'
-import {DatePickerBox} from './Detail/DatePickerBox'
-import Main from './Detail/Main'
+import {Main} from './Detail/Main'
+import DatePickerBox from './Detail/DatePickerBox'
 
 
 const Detail = () => {
@@ -14,20 +14,18 @@ const Detail = () => {
     const datePickerToggle = () => {
         toggleDate ? setToggleDate(false) : setToggleDate(true)
     }
+
     return (
         <Layout>
-            <Topbar>
-                <Icon/>
-                <span>随身记</span>
-                <Icon/>
-            </Topbar>
-            <Aside value={month} onchange={datePickerToggle}>月份</Aside>
+            <Topbar><Icon/><span >随身记</span><Icon/></Topbar>
+            <Aside value={month} onchange={datePickerToggle}/>
+
             {
                 toggleDate ? '' :
-                    <DatePickerBox month={month}
-                                   onchange={month => setMonth(month)}
-                                   datePickerToggle={datePickerToggle}/>
+                    <DatePickerBox month={month} onchange={(month) => setMonth(month)}
+                                   datePickerToggle={datePickerToggle}> </DatePickerBox>
             }
+
             <Main value={month}/>
         </Layout>
     )

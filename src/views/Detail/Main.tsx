@@ -1,12 +1,15 @@
-import {day, weekRule} from '../../component/Day'
 import React from 'react'
 import {useTags} from '../../hooks/useTags'
 import styled from 'styled-components'
 import {RecordItem, useRecords} from '../../hooks/useRecords'
 import NoPage from './NoPage'
-import Icon from '../../component/icon'
+import {day, weekRule} from '../../component/Day'
 import {IconBox} from './IconBox'
+import Icon from '../../component/icon'
 
+const Wrapper = styled.div`
+  height: calc(100% - 128px);
+`
 const ListByDay = styled.div`
   background-color: #fff;
 
@@ -50,13 +53,11 @@ const ListByDay = styled.div`
     border-bottom: none;
   }
 `
-const Main = styled.main`
-  height:calc(100% - 128px);
-`
+
 type Props = {
     value: string
 }
-const Component: React.FC<Props> = (props) => {
+const Main: React.FC<Props> = (props) => {
     const {sumAmountByType, getAmountByDate} = useRecords()
     let month = props.value
     const {getTag} = useTags()
@@ -78,7 +79,7 @@ const Component: React.FC<Props> = (props) => {
     })
     const getTagById = (id: number) => getTag(id)
     return (
-        <Main>
+        <Wrapper>
             {array.length === 0 ? <NoPage/> : array.map(([date, records]) =>
                 <ListByDay key={date}>
                     <div className='title'>
@@ -99,7 +100,7 @@ const Component: React.FC<Props> = (props) => {
                                     </IconBox>
                                     <div className='listItem'>
                                         <span>{getTagById(record.tagId).name}</span>
-                                        <span>{record.moneyType === '-' ? record.moneyType : ''}
+                                        <span>{record.moneyType === '-' ? record.moneyType : '+'}
                                             {record.amount}</span>
                                     </div>
                                 </li>
@@ -110,7 +111,7 @@ const Component: React.FC<Props> = (props) => {
             )
             }
 
-        </Main>
+        </Wrapper>
     )
 }
-export default Component
+export {Main}

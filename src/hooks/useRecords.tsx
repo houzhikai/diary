@@ -7,9 +7,9 @@ export type RecordItem = {
     note: string
     moneyType: '-' | '+'
     amount: string
-    createAt: string
+    createAt: string        //ISO 8601 格式
 }
-type newRecordItem = Omit<RecordItem, 'createAt'>
+type newRecordItem = Omit<RecordItem, 'createAt'>      //忽略 RecordItem 的 createAt的值，其他都要
 
 export const useRecords = () => {
     const [records, setRecords] = useState<RecordItem[]>([])
@@ -20,11 +20,11 @@ export const useRecords = () => {
 
     useUpdate(() => {
         window.localStorage.setItem('records', JSON.stringify(records))
-    }, [records])
+    }, records)
 
     const addRecord = (newRecord: newRecordItem) => {
         if(newRecord.tagId === null || newRecord.tagId === 0){
-            alert('请添加标签！')
+            alert('请添加标签!!！')
             return false
         }
         if(parseFloat(newRecord.amount) <= 0){

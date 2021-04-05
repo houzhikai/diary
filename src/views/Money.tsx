@@ -6,7 +6,6 @@ import CategorySection from './Money/CategorySection'
 import {TagsSection} from './Money/TagsSection'
 import NoteSection from './Money/NoteSection'
 import NumberSection from './Money/NumberSection'
-
 const MyLayout = styled(Layout)`
   display: flex;
   flex-direction: column;
